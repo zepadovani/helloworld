@@ -19,6 +19,9 @@ jobs:
       with:
         platform: x64
 
+    - name: install make pkg-config autoconf automake libtool 
+      run: pacman -S make pkg-config autoconf automake libtool
+
 
 #     - name: configure
 #       run: ./configure
