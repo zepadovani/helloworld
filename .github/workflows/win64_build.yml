@@ -1,4 +1,4 @@
-name: Cross Compile Test - Win64
+name: Cross Compile and Release Test - Win64
 
 on:
   push:
