@@ -44,7 +44,6 @@ jobs:
       run: |
         sudo make install PLATFORM=x86_64-w64-mingw32 PDDIR=$TMPPD/pd-0.51-4/ DESTDIR=$OUTPATH
 
-
     - uses: ncipollo/release-action@v1
       with:
         artifacts:  artifacts: "helloworld_testrelease.tar.gz,/tmp/pd-externals/Pd/*"
