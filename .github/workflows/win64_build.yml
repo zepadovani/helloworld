@@ -8,7 +8,7 @@ on:
 
 
 env:
-  TMPPD: /tmp/pd
+  TMPPD: /tmp/
   OUTPATH: /tmp/pd-externals/
 
 
@@ -35,25 +35,28 @@ jobs:
     - name: preparing to compile Pd for Windows 64
       run: |
         cd $TMPPD
-        ./autogen.sh
-        ./configure --disable-asio --host=x86_64-w64-mingw32
+        wget http://msp.ucsd.edu/Software/pd-0.51-4.msw.zip
+        unzip pd-0.51-4.msw.zip
+        ls pd-0.51-4/
+        # ./autogen.sh
+        # ./configure --disable-asio --host=x86_64-w64-mingw32
+    #
+    # - name: compiling Pd for Windows 64
+    #   run: |
+    #     cd $TMPPD
+    #     make
+    #
+    # - name: locating dlls
+    #   run: |
+    #     cd $TMPPD
+    #     ls bin/* -a
+    #     ls src/* -a
 
-    - name: compiling Pd for Windows 64
-      run: |
-        cd $TMPPD
-        make
-
-    - name: locating dlls
-      run: |
-        cd $TMPPD
-        ls bin/* -a
-        ls src/* -a
-
-    - name: cross-compiling library
-      run: |
-        make PLATFORM=x86_64-w64-mingw32 PDDIR=$TMPPD
-        pwd
-        # cd $GITHUB_WORKSPACE
+    # - name: cross-compiling library
+    #   run: |
+    #     make PLATFORM=x86_64-w64-mingw32 PDDIR=$TMPPD
+    #     pwd
+    #     # cd $GITHUB_WORKSPACE
 
 
     # - name: make
