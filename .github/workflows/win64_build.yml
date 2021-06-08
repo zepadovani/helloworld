@@ -39,7 +39,7 @@ jobs:
         make
         ls -a
 
-     the
+     
 
     # - name: make
     #   run: make
