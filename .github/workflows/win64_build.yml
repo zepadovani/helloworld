@@ -49,11 +49,10 @@ jobs:
         zip -r helloworld_win64_release.zip $OUTPATH/Pd
         ls -la
 
-
-    # - uses: ncipollo/release-action@v1
-    #   with:
-    #     artifacts:  "helloworld_testrelease.tar.gz,/tmp/pd-externals/Pd/*"
-    #     token: ${{ secrets.GITHUB_TOKEN }}
+    - uses: ncipollo/release-action@v1
+      with:
+        artifacts:  "helloworld_win64_release.zip"
+        token: ${{ secrets.GITHUB_TOKEN }}
 
 
     # - name: make
