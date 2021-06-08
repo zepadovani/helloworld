@@ -26,7 +26,7 @@ jobs:
         git clone https://github.com/pure-data/pure-data $TMPPD
 
     - name: install cross-compile tools
-      run:
+      run: |
         sudo apt-get install build-essential automake autoconf libtool gettext
         sudo apt-get install make gcc-mingw-w64-x86-64 gcc-mingw-w64-i686 mingw-w64 mingw-w64-tools
         sudo apt-get install nsis
@@ -39,15 +39,7 @@ jobs:
         make
         ls -a
 
-    # - name: compile lib for Windows 64 / Pd
-    #   run:
-    #     make PLATFORM=x86_64-w64-mingw32 PDDIR=$TMPPD
-    #
-    # - name: install lib to dir
-    #   run:
-    #     sudo make install PLATFORM=x86_64-w64-mingw32 PDDIR=$TMPPD DESTDIR=$OUTPATH
-    #     cd $OUTPATH
-    #     ls -a
+     the
 
     # - name: make
     #   run: make
