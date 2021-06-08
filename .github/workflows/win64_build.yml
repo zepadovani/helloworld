@@ -33,13 +33,13 @@ jobs:
         #sudo apt-get install make gcc-mingw-w64-x86-64 gcc-mingw-w64-i686 mingw-w64
 
     - name: compile Pd for Windows 64
-      run:
+      run: |
         cd $TMPPD
         ./configure --disable-asio --host=x86_64-w64-mingw32
         make
         ls -a
 
-     
+
 
     # - name: make
     #   run: make
