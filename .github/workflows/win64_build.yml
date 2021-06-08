@@ -24,7 +24,7 @@ jobs:
     - name: download pure-data
       run: |
         git clone https://github.com/pure-data/pure-data $TMPPD
-    
+
     - name: install cross-compile tools
       run: |
         sudo apt-get install build-essential automake autoconf libtool gettext
@@ -38,8 +38,8 @@ jobs:
         ./autogen.sh
         ./configure --disable-asio --host=x86_64-w64-mingw32
         ls -a
-        # make
-        # ls -a
+        make
+        ls -a
 
 
 
