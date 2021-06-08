@@ -35,21 +35,24 @@ jobs:
     - name: preparing to compile Pd for Windows 64
       run: |
         cd $TMPPD
-        ./autogen.sh
-        ./configure --disable-asio --host=x86_64-w64-mingw32
+    #     ./autogen.sh
+    #     ./configure --disable-asio --host=x86_64-w64-mingw32
+    #
+    # - name: compiling Pd for Windows 64
+    #   run: |
+    #     cd $TMPPD
+    #     make
+    #
+    # - name: locating dlls
+    #   run: |
+    #     cd $TMPPD
+    #     ls bin/* -a
+    #     ls src/* -a
 
-    - name: compiling Pd for Windows 64
+    - name: compiling library
       run: |
-        cd $TMPPD
-        make
-
-    - name: locating dlls
-      run: |
-        cd $TMPPD
-        ls -a
-
-
-
+        pwd
+        cd $GITHUB_WORKSPACE
 
 
     # - name: make
