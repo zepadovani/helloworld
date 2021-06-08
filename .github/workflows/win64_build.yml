@@ -48,10 +48,10 @@ jobs:
       run: |
         cd $OUTPATH/Pd
         ls -la
-        zip -r helloworld_win64_release.zip ./helloworld
+        sudo zip -r helloworld_win64_release.zip ./helloworld
         pwd
 
-    # 
+    #
     # - uses: ncipollo/release-action@v1
     #   with:
     #     artifacts:  "helloworld_win64_release.zip"
