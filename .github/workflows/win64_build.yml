@@ -7,7 +7,7 @@ on:
 
 env:
   TMPPD: /tmp/pd/
-  OUTPATH: /tmp/pd-externals/
+  # OUTPATH: /tmp/pd-externals/
 
 jobs:
   build:
@@ -42,20 +42,19 @@ jobs:
 
     - name: cross-compiling library
       run: |
-        sudo make install PLATFORM=x86_64-w64-mingw32 PDDIR=$TMPPD/pd-0.51-4/ DESTDIR=$OUTPATH
+        sudo make install PLATFORM=x86_64-w64-mingw32 PDDIR=$TMPPD/pd-0.51-4/ DESTDIR=$GITHUB_WORKSPACE
 
     - name: creating zip of compiled lib
       run: |
-        cd $OUTPATH/Pd
+        cd $GITHUB_WORKSPACE/Pd
         ls -la
         sudo zip -r helloworld_win64_release.zip ./helloworld
-        pwd
+        mv ./helloworld_win64_release.zip $GITHUB_WORKSPACE/helloworld_win64_release.zip
 
-    #
-    # - uses: ncipollo/release-action@v1
-    #   with:
-    #     artifacts:  "helloworld_win64_release.zip"
-    #     token: ${{ secrets.GITHUB_TOKEN }}
+    - uses: ncipollo/release-action@v1
+      with:
+        artifacts:  "helloworld_win64_release.zip"
+        token: ${{ secrets.GITHUB_TOKEN }}
 
 
     # - name: make
