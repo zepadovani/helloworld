@@ -49,7 +49,7 @@ jobs:
         cd $GITHUB_WORKSPACE/Pd
         ls -la
         sudo zip -r helloworld_win64_release.zip ./helloworld
-        mv ./helloworld_win64_release.zip $GITHUB_WORKSPACE/helloworld_win64_release.zip
+        sudo mv helloworld_win64_release.zip $GITHUB_WORKSPACE/
 
     - uses: ncipollo/release-action@v1
       with:
