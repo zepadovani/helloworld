@@ -21,9 +21,9 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-    - name: download pure-data
-      run: |
-        git clone https://github.com/pure-data/pure-data $TMPPD
+    # - name: download pure-data
+    #   run: |
+    #     git clone https://github.com/pure-data/pure-data $TMPPD
 
     - name: install cross-compile tools
       run: |
@@ -32,31 +32,17 @@ jobs:
         sudo apt-get install nsis
       #sudo apt-get install make gcc-mingw-w64-x86-64 gcc-mingw-w64-i686 mingw-w64
 
-    - name: preparing to compile Pd for Windows 64
+    - name: donload compiled Pd-0.51-4 for Windows 64
       run: |
         cd $TMPPD
         wget http://msp.ucsd.edu/Software/pd-0.51-4.msw.zip
         unzip pd-0.51-4.msw.zip
-        ls pd-0.51-4/
-        # ./autogen.sh
-        # ./configure --disable-asio --host=x86_64-w64-mingw32
-    #
-    # - name: compiling Pd for Windows 64
-    #   run: |
-    #     cd $TMPPD
-    #     make
-    #
-    # - name: locating dlls
-    #   run: |
-    #     cd $TMPPD
-    #     ls bin/* -a
-    #     ls src/* -a
 
-    # - name: cross-compiling library
-    #   run: |
-    #     make PLATFORM=x86_64-w64-mingw32 PDDIR=$TMPPD
-    #     pwd
-    #     # cd $GITHUB_WORKSPACE
+    - name: cross-compiling library
+      run: |
+        make PLATFORM=x86_64-w64-mingw32 PDDIR=$TMPPD/pd-0.51-4/
+        pwd
+        # cd $GITHUB_WORKSPACE
 
 
     # - name: make
