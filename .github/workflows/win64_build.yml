@@ -34,7 +34,9 @@ jobs:
 
     - name: compile Pd for Windows 64
       run: |
-        $TMPPD/configure --disable-asio --host=x86_64-w64-mingw32
+        cd /tmp/pd/
+        ls -la
+        ./configure --disable-asio --host=x86_64-w64-mingw32
         cd /tmp/pd/
         ls -a
         make
