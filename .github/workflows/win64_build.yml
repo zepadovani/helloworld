@@ -34,15 +34,17 @@ jobs:
 
     - name: donload compiled Pd-0.51-4 for Windows 64
       run: |
+        mkdir $TMPPD
         cd $TMPPD
         wget http://msp.ucsd.edu/Software/pd-0.51-4.msw.zip
         unzip pd-0.51-4.msw.zip
-
-    - name: cross-compiling library
-      run: |
-        make PLATFORM=x86_64-w64-mingw32 PDDIR=$TMPPD/pd-0.51-4/
-        pwd
-        # cd $GITHUB_WORKSPACE
+        ls pd-0.51-4/
+        
+    # - name: cross-compiling library
+    #   run: |
+    #     make PLATFORM=x86_64-w64-mingw32 PDDIR=$TMPPD
+    #     pwd
+    #     # cd $GITHUB_WORKSPACE
 
 
     # - name: make
