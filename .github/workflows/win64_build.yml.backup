@@ -2,12 +2,16 @@ name: Cross Compile Test - Win64
 
 on:
   push:
-    tags:
-    - '*'
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
 
 env:
   TMPPD: /tmp/pd/
   OUTPATH: /tmp/pd-externals/
+
+
 
 jobs:
   build:
@@ -45,10 +49,6 @@ jobs:
         sudo make install PLATFORM=x86_64-w64-mingw32 PDDIR=$TMPPD/pd-0.51-4/ DESTDIR=$OUTPATH
 
 
-    - uses: ncipollo/release-action@v1
-      with:
-        artifacts: $OUTPATH
-        token: ${{ secrets.GITHUB_TOKEN }}
 
 
     # - name: make
