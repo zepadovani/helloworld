@@ -47,7 +47,7 @@ jobs:
 
     - uses: ncipollo/release-action@v1
       with:
-        artifacts: $OUTPATH
+        artifacts:  artifacts: "helloworld_testrelease.tar.gz,/tmp/pd-externals/Pd/*"
         token: ${{ secrets.GITHUB_TOKEN }}
 
 
