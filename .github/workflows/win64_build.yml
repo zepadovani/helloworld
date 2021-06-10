@@ -55,11 +55,3 @@ jobs:
       with:
         artifacts:  "helloworld_win64_release.zip"
         token: ${{ secrets.GITHUB_TOKEN }}
-
-
-    # - name: make
-    #   run: make
-    # - name: make check
-    #   run: make check
-    # - name: make distcheck
-    #   run: make distcheck
